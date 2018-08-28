@@ -1,0 +1,143 @@
+#include<iostream>
+using namespace std;
+
+int count = 0;
+
+struct Node{
+
+ Date timestamp;
+ 
+ string data;
+
+ int nodeNumber;
+ 
+ string nodeId;
+ 
+ string referenceNodeId;
+ 
+ string childReferenceNodeId[];
+ 
+ string genesisReferenceNodeId;
+
+ string HashValue;
+};
+
+Node *genesis=NULL;
+
+
+/*Code for finding node with ngiven parent Id */
+ void find(parentId,current)
+{
+
+ /*Code for attempting depth first search/* 
+ dfs(){
+
+ if(current->nodeId==parentId)
+{
+  cout<<"Parent found\n Enter the owner name \n Enter the value";
+  cin>>name;
+  cin>>value;
+  current=create(name,value);
+}
+}
+  cout<<"No parent found with such ID"\n;
+  cout<<"Add another address\n";
+   
+}
+
+/*Code for creating node*/
+
+Node *create(name,value,parentId)
+{
+  struct *node = new Node;
+  node->timestamp = Date.now();
+  node->data = encrypt(id,value,name);
+  node->nodeNumber = ++count;
+  node->nodeId = math.random();
+  node->referenceNodeId=parentId;
+  node->childReferenceNodeId; 
+  node->genesisReferenceNodeId = genesis;
+  node->HashValue = encrypt(timestamp,data,nodeNumber,nodeId,referenceNodeId,childReferenceNodeId,genesisReferenceNodeId);
+  return node;
+}
+
+
+
+/*Code for creating Genesis*/
+Node *createGenesis()
+{
+ string name;
+ float value;
+ cout<"Enter the owner name \n Enter the value";
+  cin>>name>>value;
+
+  struct *node = new Node;
+  node->timestamp = Date.now();
+  node->data = encrypt(id,value,name);
+  node->nodeNumber = ++count;
+  node->nodeId = math.random();
+  node->referenceNodeId=NULL;
+  node->childReferenceNodeId; 
+  node->genesisReferenceNodeId = NULL;
+  node->HashValue = encrypt(timestamp,data,nodeNumber,nodeId,referenceNodeId,childReferenceNodeId,genesisReferenceNodeId);
+  return node;
+
+}
+
+
+int function LongestChainGenesis(genesis)
+{
+  if(genesis==NULL)
+   return 0;
+  else 
+   return LongestGenesis(1+max(genesis->left,genesis->right));
+}
+
+int function LongestChain(current)
+{
+ if(current==NULL)
+   return 0;
+  else 
+   return LongestChain(1+max(current->left,current->right));
+}
+
+int main()
+{
+  string parentId;
+  int choice;
+
+  genesis = createGenesis();
+
+ while(1)
+{
+ cout<<"Choose your options\n";
+ cout<<"1.create node\n";
+ cout<<"2.Exit\n";
+ cout<<"3.Longest chian of Genesis\n";
+ cout<<"4.Longest Chain of any Node\n"; 
+ cin>>choice;
+ 
+ switch(choice)
+{
+  case 1: 
+  cout<<"Enter parent address";
+  cin>>parentId; 
+  find(parentId,genesis);
+
+  case 2:
+   exit(0);
+
+  case 3:
+  cout<<"Longest chain of genesis"<<longestChainGenesis(); 
+ 
+  case 4:
+  cout<<"Enter node address to find longest chain";
+  cin>>add;
+  cout<<"Longest chain from given node"<<longestChain(add); 
+}
+
+}
+
+return 0;
+}
+
